@@ -369,6 +369,48 @@ function printHTMLBody(body){
 return str;
 }
 
+function printFormHTML() {
+  const res = `
+  <h1 style="background-color: lightgreen;" title="IWP Multi Yatzy">IWP Multi Yatzy</h1>
+  
+  <!-- <form action="https://httpbin.org/post" method="post"> -->
+  <!-- <form action="https://httpbin.org/get" method="get"-->
+  <form action="https://httpbin.org/post" method="post">
+    <fieldset>
+      <legend>Configure Game:</legend>
+
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Name" required autofocus />
+      </div>
+
+      <div class="form-group">
+        <label for="number_dices">Number of dices</label>
+        <input type="number" id="number_dices" name="number_of_dices" placeholder="5" required/>
+      </div>
+
+      <div class="form-group">
+        <label for="difficulty">Difficulty Level</label>
+        <input type="number" id="difficulty" name="difficulty" value="1.0" step="0.1" max="2" min="1" required />
+      </div>
+
+      <div class="form-group">
+        <label for="play_top_down">Play Top Down</label>
+        <input type="radio" id="play_top_down" name="play_directon" value="play_top_down" required />
+      </div>
+
+      <div class="form-group">
+        <label for="play_bottom_up">Play Bottom Up</label>
+        <input type="radio" id="play_bottom_up" name="play_directon" value="play_bottom_up" />
+      </div>
+
+      <input type="submit" value="New Game">
+    </fieldset>
+  </form>
+  `
+  return res
+}
+
 //Generate a string with table header and caption
 function printScoreTableHdrHTML(){
   let res=`
@@ -385,6 +427,7 @@ return res;
 function printScoresHTML(scoreTable){
   //first add table header and caption
   let res=`<table id="scoretable"> \n`;
+  res+=printFormHTML()
   res+=printScoreTableHdrHTML(scoreTable);
   //then add the table body, one row at a time
   res+="<tbody> \n";
