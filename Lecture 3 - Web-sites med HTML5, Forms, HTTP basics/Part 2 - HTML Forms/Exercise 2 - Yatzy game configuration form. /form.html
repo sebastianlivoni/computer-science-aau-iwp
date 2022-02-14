@@ -1,0 +1,58 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>IWP Multi Yatzy</title>
+
+</head>
+
+<style>
+.form-group {
+  display:  block;
+  margin: 8px 0;
+}
+</style>
+
+<body>
+
+  <h1 style="background-color: lightgreen;">IWP Multi Yatzy</h1>
+  
+  <!-- Can be changed to get and post -->
+  <form action="https://httpbin.org/post" method="post">
+    <fieldset>
+      <legend>Configure Game:</legend>
+
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input text="text" id="name" name="name" placeholder="Name" required/>
+      </div>
+
+      <div class="form-group">
+        <label for="number_dices">Number of dices</label>
+        <input text="number" id="number_dices" name="number_of_dices" placeholder="5" required/>
+      </div>
+
+      <div class="form-group">
+        <label for="difficulty">Difficulty Level</label>
+        <input type="number" id="difficulty" name="difficulty" value="1.0" step="0.1" max="2" min="1" required />
+      </div>
+
+      <div class="form-group">
+        <label for="play_top_down">Play Top Down</label>
+        <input type="radio" id="play_top_down" name="play_directon" value="play_top_down" required />
+      </div>
+
+      <div class="form-group">
+        <label for="play_bottom_up">Play Bottom Up</label>
+        <input type="radio" id="play_top_down" name="play_directon" value="play_bottom_up" />
+      </div>
+
+      <input type="submit" value="New Game">
+    </fieldset>
+  </form>
+
+</body>
+</html>
