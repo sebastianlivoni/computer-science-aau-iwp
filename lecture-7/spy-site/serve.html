@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>What I'm interested in</title>
+</head> 
+<body>
+
+<header>
+  <h1>I'm interested in:</h1>
+  <p>Football.</p>
+</header>
+
+<main>
+  <img src="https://phantom-marca.unidadeditorial.es/ad4d1ff479e76851e387b13c053bd94e/resize/1320/f/jpg/assets/multimedia/imagenes/2022/01/11/16418931167394.jpg" alt="football match" height="175rem"/>
+  <h3>My favorite teams is: <button id="favorite-team">click here</button></h3>
+</main>
+
+
+<script>
+
+document.querySelector('#favorite-team').addEventListener('mouseover', (event) => {
+  fetch('/onmouseover', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({screenX: event.screenX, screenY: event.screenY})
+  }).then(() => console.log('sent'))
+})
+
+</script>
+
+</body>
+</html>
