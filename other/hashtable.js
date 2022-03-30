@@ -13,8 +13,8 @@ function linearHashing(arr) {
     let i = 0
     let hash = (h(k) + i) % m
     while (hashtable[hash]) {
-      hash++
-      //hash = (h(k) + i) % m
+      i++
+      hash = (h(k) + i) % m
     }
     hashtable[hash] = k
   })
@@ -31,8 +31,8 @@ function quadraticHashing(arr) {
     let i = 0
     let hash = (h(k) + c1 * i + c2 * Math.pow(i, 2)) % m
     while (hashtable[hash]) {
-      hash++
-      //hash = (h(k) + c1 * i + c2 * Math.pow(i, 2)) % m
+      i++
+      hash = (h(k) + c1 * i + c2 * Math.pow(i, 2)) % m
     }
     hashtable[hash] = k
   })
@@ -42,16 +42,16 @@ function quadraticHashing(arr) {
 
 function doubleHashing(arr) {
   const h1 = (k) => k
-  const h2 = (k) => k % (m - 1)
+  const h2 = (k) => 1 + (k % (m - 1))
 
   let hashtable = []
 
   arr.forEach((k) => {
     let i = 0
-    let hash = (h1(k) * k + i * h2(k)) % m
+    let hash = (h1(k) + i * h2(k)) % m
     while (hashtable[hash]) {
-      hash++
-      //hash = (h1(k) * k + i * h2(k)) % m
+      i++
+      hash = (h1(k) + i * h2(k)) % m
     }
     hashtable[hash] = k
   })
